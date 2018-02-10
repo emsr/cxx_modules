@@ -1,0 +1,7 @@
+
+a.out
+*.o
+*.exe
+*.so
+*.nms
+*.core
