@@ -1,6 +1,3 @@
-/*
-$HOME/bin_modules/bin/g++ -c -fmodules foobar.cpp
-*/
 
 export module foobar;
 
