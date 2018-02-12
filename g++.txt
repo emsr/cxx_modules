@@ -1,0 +1,58 @@
+Pasted from the modules branch man pages:
+
+       -fmodules
+       -fmodules++
+           Enable experimental support for the Extensions to C++ for Modules extension.
+
+       -fmodule-root=dir
+           Option not fully baked.
+
+       -fmodule-path=dir
+           Append dir to the compiled module interface search path. The ':' separated directory list in
+           CXX_MODULE_PATH is appended after explicitly specified directories.
+
+       -fmodule-wrapper=program
+           If a compiled module interface file cannot be found on the module path, this program is invoked
+           to build it.  After completion, the module path is re-searched.  If not specified, the value of
+           CXX_MODULE_WRAPPER shall be used, which if not specified will default to a built-in wrapper
+           program.  The values of COLLECT_GCC and COLLECT_GCC_OPTIONS can be used to determine the compiler
+           command and compilation options.
+
+       -fmodule-output=file
+           Write the binary module interface into file.  This option is only valid when compiling a module
+           interface unit.
+
+       -fmodule-file=[name=]file
+           If the name=file form is used, then the binary interface for module name is in file.  If the file
+           form is used, then read mappings of either form, one per line, from file.  When reading mappings
+           from a file, unless an absolute path is used, the mapping files are relative to the file being
+           read from.
+
+...
+
+       -fdump-lang
+           Dump language-specific information.  The file name is made by appending .lang to the source file
+           name.  Currently used for C++ modules.
+
+       -fdump-lang-all
+       -fdump-lang-switch
+       -fdump-lang-switch-options
+       -fdump-lang-switch-options=filename
+           Control the dumping of language-specific information.  The options and filename portions behave
+           as described in the -fdump-tree option.  The following switch values are accepted:
+
+           all Enable all language-specific dumps.
+
+           class
+               Dump class hierarchy information.  Virtual table information is emitted unless 'slim' is
+               specified.  This option is applicable to C++ only.
+
+           module
+               Dump module information.  This option is applicable to C++ only.
+
+           raw Dump the raw internal tree data.  This option is applicable to C++ only.
+
+...
+
+BUGS
+       For instructions on reporting bugs, see <https://gcc.gnu.org/wiki/cxx-modules#Bugs>.
