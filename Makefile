@@ -1,11 +1,11 @@
 
 all: toy
 
-libfoobar.so: foobar.nms foo.o bar.o
+libfoobar.so: foobar.o foo.o bar.o
 	$(HOME)/bin_modules/bin/g++ -std=c++17 -shared -o libfoobar.so foobar.o foo.o bar.o
 
 # This produces two targets
-foobar.nms: foobar.cpp
+foobar.nms foobar.o: foobar.cpp
 	$(HOME)/bin_modules/bin/g++ -std=c++17 -fmodules -fmodule-wrapper=false -c foobar.cpp
 
 foo.o: foobar.nms foo.cpp
