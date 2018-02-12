@@ -1,6 +1,7 @@
 
 export module foobar;
 
+export
 class Thing
 {
 public:
@@ -9,7 +10,7 @@ public:
   int jj;
 };
 
-// No public members..
+// Not exported?
 class Hidden
 {
   double x;
@@ -19,12 +20,14 @@ class Hidden
 
 int lim;
 
+export
 struct foo
 {
   double x;
   double square() const;
 };
 
+export
 struct bar
 {
   double y;

@@ -14,7 +14,7 @@ foo.o: foobar.nms foo.cpp
 bar.o: foobar.nms bar.cpp
 	$(HOME)/bin_modules/bin/g++ -std=c++17 -fmodules -fmodule-wrapper=false -c bar.cpp
 
-toy.o: toy.cpp
+toy.o: foobar.nms toy.cpp
 	$(HOME)/bin_modules/bin/g++ -std=c++17 -fmodules -fmodule-wrapper=false -c toy.cpp
 
 toy:  libfoobar.so toy.o

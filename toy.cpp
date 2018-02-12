@@ -12,4 +12,6 @@ main()
 
   bar b;
   b.y = 2.1828;
+
+  //Hidden h;
 }
