@@ -1,22 +1,22 @@
 Pasted from the modules branch man pages:
 
-       -fmodules
-       -fmodules++
-           Enable experimental support for the Extensions to C++ for Modules extension.
+       -fmodules-ts
+       -fmodules-atom
+           Enable experimental support for n4720:"Working Draft, Extensions to C++ for Modules" or for
+           p0947:"Another Take On Modules".
 
-       -fmodule-root=dir
-           Option not fully baked.
+       -fmodule-prefix=dir
+           Prefix all relative compiled module interface filenames with dir.
 
        -fmodule-path=dir
-           Append dir to the compiled module interface search path. The ':' separated directory list in
-           CXX_MODULE_PATH is appended after explicitly specified directories.
+           Append dir to the module-map search path.  The ':' separated directory list in CXX_MODULE_PATH is
+           appended after explicitly specified directories.
 
        -fmodule-wrapper=program
-           If a compiled module interface file cannot be found on the module path, this program is invoked
-           to build it.  After completion, the module path is re-searched.  If not specified, the value of
-           CXX_MODULE_WRAPPER shall be used, which if not specified will default to a built-in wrapper
-           program.  The values of COLLECT_GCC and COLLECT_GCC_OPTIONS can be used to determine the compiler
-           command and compilation options.
+           If a compiled module interface file is not present, this program is invoked to build it.  If not
+           specified, the value of CXX_MODULE_WRAPPER shall be used, which if not specified will default to a
+           built-in wrapper program.  The values of COLLECT_GCC and COLLECT_GCC_OPTIONS can be used to
+           determine the compiler command and compilation options.
 
        -fmodule-output=file
            Write the binary module interface into file.  This option is only valid when compiling a module
@@ -24,9 +24,13 @@ Pasted from the modules branch man pages:
 
        -fmodule-file=[name=]file
            If the name=file form is used, then the binary interface for module name is in file.  If the file
-           form is used, then read mappings of either form, one per line, from file.  When reading mappings
-           from a file, unless an absolute path is used, the mapping files are relative to the file being
-           read from.
+           form is used, then read mappings of either form, from file.  The module-path is used to find the
+           mapping file.  The mapping file may contain commented lines beginning with "#".  If a line begins
+           with "G++Module", even inside a comment, the next word is taken to be a marker word.  All lines not
+           beginning with the marker are ignored.  Marker lines are taken to be a map, or a map file.  Without
+           a marker, uncommented lines are used.  A line may have a trailing ";"srcname suffix, which is
+           passed to the module wrapper.  FIXME: this should all go in a new Modules? How do they work?
+           section.
 
 ...
 
