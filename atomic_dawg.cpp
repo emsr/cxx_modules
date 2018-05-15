@@ -1,0 +1,7 @@
+
+import dawg;
+
+int
+main()
+{
+}
